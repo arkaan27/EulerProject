@@ -7,29 +7,23 @@
 
 # Find the sum of all the multiples of 3 or 5 below 1000.
 
-def multiples(y, x):
+def compute(y, z, x):
     """
-    Puts all the multiples of y below x in a list and returns the list
+    Checks for all the multiples of y and z below x and sums the multiples
     :param y: The multiple number
-    :param x: The number till you count the multiples of y
-    :return multiple_list: List of all the multiples of y below x
+    :param z: The second multiple number
+    :param x: The number till you count the multiples of y and z
+    :return answer: The sum of multiples of y and z below x
     """
-    multiple_list = []
+    answer = 0
     for number in range(0, x):
-        if number % y == 0:
-            multiple_list.append(number)
+        if number % y == 0 or number % z == 0:
+            answer += number
 
-    return multiple_list
+    return answer
 
 
 if __name__ == '__main__':
+    print(compute(3, 5, 1000))
 
-    # Calculates the multiples of 3 & 5
-    multiple_list_3 = multiples(3, 1000)
-    multiple_list_5 = multiples(5, 1000)
-
-    # Sums all the numbers present in the list
-    total_sum = sum(multiple_list_3) + sum(multiple_list_5)
-
-    # Prints the sum
-    print(total_sum)
+    ## answer is 233168
